@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.cursoudemy.android.mdc.databinding.ActivityScrollingBinding
 import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -23,8 +22,8 @@ class ScrollingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_scrolling)
-        //Inicializado el objecto binding
+        /*setContentView(R.layout.activity_scrolling)*/
+        /*Inicializado el objecto binding*/
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -48,7 +47,7 @@ class ScrollingActivity : AppCompatActivity() {
             Snackbar.make(binding.root, R.string.message_action_success,Snackbar.LENGTH_LONG).setAnchorView(binding.fab).show()
         })
 
-        binding.content.btnSkip.setOnClickListener { binding.content.cvAd?.visibility = View.GONE }
+        binding.content.btnSkip.setOnClickListener { binding.content.cvAd.visibility = View.GONE }
 
         binding.content.btnBuy.setOnClickListener {
             Snackbar.make(it, R.string.card_buying, Snackbar.LENGTH_LONG)
@@ -59,7 +58,7 @@ class ScrollingActivity : AppCompatActivity() {
                 .show()
         }
 
-        //.into(binding.content.imgCover)
+        /*.into(binding.content.imgCover)*/
 
 
         loadImage()
@@ -74,13 +73,12 @@ class ScrollingActivity : AppCompatActivity() {
         * */
 
         binding.content.cbEnablePass.setOnClickListener {
-            //binding.content.tilPassword?.isEnabled = !binding.content.tilPassword?.isEnabled
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
         }
 
-        //Actualmente tenemos un listener en el Textfield dedicado a recibir una URL
+        /*Actualmente tenemos un listener en el Textfield dedicado a recibir una URL*/
         binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, focused ->
-            //variable errorStr si puede ser null
+            /*variable errorStr si puede ser null*/
             var errorStr: String? = null
             val url = binding.content.etUrl.text.toString()
 
@@ -97,7 +95,7 @@ class ScrollingActivity : AppCompatActivity() {
             binding.content.tilUrl.error = errorStr
         }
 
-        binding.content.toggleButton?.addOnButtonCheckedListener { group, checkedId, isChecked ->
+        binding.content.toggleButton.addOnButtonCheckedListener { group, checkedId, isChecked ->
             binding.content.root.setBackgroundColor(
                 when(checkedId){
                     R.id.btnRed -> Color.RED
